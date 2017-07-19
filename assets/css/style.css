@@ -1,0 +1,26 @@
+.tombol-hapus{
+	/*background-color: red;*/
+	color: #D73727;
+	border-radius: 10px;
+	border :solid 2px #D73727;
+	padding: 5px 5px 5px 5px; 
+}
+.tombol-hapus:hover{
+	background-color: #D73727 ;
+	color: white;
+
+}
+.tombol-edit{
+	/*background-color: red;*/
+	color: #095077;
+	border-radius: 10px;
+	border :solid 2px #095077;
+	padding: 5px 5px 5px 5px; 
+	
+	/*width: 30px;*/
+}
+.tombol-edit:hover{
+	background-color: #095077 ;
+	color: white;
+
+}
