@@ -4,7 +4,7 @@
 
 if (isset($_POST['_form']) AND $_POST['_form'] == 'on') {
 
-        $na=69;
+        /*$na=69;*/
         $nama=$_POST['nama'];
         $email=$_POST['email'];
         $pass1=$_POST['password'];
@@ -14,11 +14,6 @@ if (isset($_POST['_form']) AND $_POST['_form'] == 'on') {
 
             if($pass1==$pass2){
 
-               /* $nama = mysqli_real_escape_string($connection,$nama);
-                $email = mysqli_real_escape_string($connection,$email);
-                $pass1 = mysqli_real_escape_string($connection,$pass1);
-*/
-        //$pass1 = password_hash($pass1,PASSWORD_DEFAULT);
 
                 $query = "INSERT INTO PENGGUNA VALUES(id_pengguna.NextVal,:W0, :W1, :W2, :W3)";
 
@@ -28,6 +23,17 @@ if (isset($_POST['_form']) AND $_POST['_form'] == 'on') {
                 oci_bind_by_name($result, ":W2", $email);
                 oci_bind_by_name($result, ":W3", $pass1);
                 oci_execute($result);
+
+
+
+
+
+
+                 /* $nama = mysqli_real_escape_string($connection,$nama);
+                $email = mysqli_real_escape_string($connection,$email);
+                $pass1 = mysqli_real_escape_string($connection,$pass1);
+*/
+        //$pass1 = password_hash($pass1,PASSWORD_DEFAULT);
                     //memasukan ke dalam database
                 /**
                 if(register_user($connectionnection, $nama, $email, $pass1)){

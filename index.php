@@ -51,6 +51,7 @@ require_once "pages/header.php";
     <div class="container-fluid">
       <div class="navbar-collapse collapse in">
         <ul class="nav navbar-nav navbar-mobile">
+
           <li>
             <button type="button" class="sidebar-toggle">
               <i class="fa fa-bars"></i>
@@ -66,7 +67,7 @@ require_once "pages/header.php";
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-left">
-          <li class="navbar-title"><span class="highlight">Aplikasi Tanam Pohon</span></li>
+          <li class="navbar-title"><span class="highlight">Aplikasi Stock Pohon</span></li>
 
         
         </ul>
@@ -96,7 +97,8 @@ require_once "pages/header.php";
             </a>
             <div class="dropdown-menu">
               <div class="profile-info">
-                <h4 class="username"> <?php echo $u['nama']; ?> </h4>
+                <!-- <h4 class="username"> <?php echo $u['nama']; ?> </h4> -->
+                <h4 class="username">Raditya </h4>
               </div>
               <ul class="action">
                 <li>

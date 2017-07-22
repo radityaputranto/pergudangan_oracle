@@ -7,13 +7,17 @@ if (!isset($_SESSION['is_logged'])) {
         </script>
     ";
 }
+
+$tgl=date("d/m/Y");
 ?>
 
 
       <div class="col-xs-12">
         <div class="card">
           <div class="card-header">
-            Data Stock Pohon
+            Data Stock Pohon <br>
+            <?php 
+            echo $tgl; ?>
 
           </div>
           <div class="card-body no-padding">
@@ -37,7 +41,7 @@ if (!isset($_SESSION['is_logged'])) {
           global $connection;
 
           $no=1;
-          
+          unset($data);
         /*pembetulan*/
 
             //MYSQL
@@ -45,11 +49,11 @@ if (!isset($_SESSION['is_logged'])) {
               $query ="SELECT * FROM pohon ORDER BY nama_pohon";    
             $data= $connection->query($query);
             while ($r=mysqli_fetch_array($data)) {*/
-
+            
             $query = oci_parse($connection, "SELECT * FROM POHON ORDER BY NAMA_POHON ");
             oci_execute($query);
 
-            $data = array("NAMA_POHON"=>'', "JENIS_POHON"=>'', 'UKURAN_POHON'=>'', 'HARGA_POHON'=>'', 'LOKASI'=>'');
+            $data = array("ID_POHON"=>'', "NAMA_POHON"=>'', "JENIS_POHON"=>'', 'UKURAN_POHON'=>'', 'HARGA_POHON'=>'', 'LOKASI'=>'');
             while($data = oci_fetch_array($query, OCI_ASSOC+OCI_RETURN_NULLS))
             {
 
@@ -62,15 +66,16 @@ if (!isset($_SESSION['is_logged'])) {
           <td><?php echo $data['HARGA_POHON']; ?></td>
           <td><?php echo $data['LOKASI']; ?></td>
 
-          <!-- <td><a href='?page=formEdit?id_pohon=<?php echo $r['Id_pohon'];?>' class="tombol-edit">Edit</a> -->
+          <!-- <td><a href='?page=formEdit?id_pohon=<?php ;?>' class="tombol-edit">Edit</a> -->
 
           
-          <td><a href='formEdit.php?id_pohon=<?php echo $r['Id_pohon'];?>' class="tombol-edit">Edit</a>
+          <td><a href='pages/formEdit.php?id=<?php echo $data['ID_POHON'];?>' class="tombol-edit">Edit</a>
           </td>
 
           <td>
-          <a href='proses/prosesHapus.php?id=<?php echo $r['Id_pohon'];?>' class="tombol-hapus">Hapus</a>
 
+          <a href='proses/prosesHapus.php?id=<?php echo $data['ID_POHON'];?>&nama=<?php echo $data['NAMA_POHON'];?>' class="tombol-hapus">Hapus</a>
+          
           </td>
          </tr>
             <?php
